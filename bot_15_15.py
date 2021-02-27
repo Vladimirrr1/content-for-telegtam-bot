@@ -57,11 +57,11 @@ def kadedra_KMAD(update, context):
     
     kb_kafedra =[
         
-        [InlineKeyboardButton('Викладачі',callback_data = 'vikladachi')],
-        [InlineKeyboardButton('Принципи навчання на кафедрі ',callback_data = 'principi')],
-        [InlineKeyboardButton('Історія кафедри ',callback_data = 'istoriyaKafedry')],
-        [InlineKeyboardButton('Аудиторії кафедри',callback_data = 'auditoryua')],
-        [InlineKeyboardButton('Наші випускники',callback_data = 'vipuskniki')]
+        [InlineKeyboardButton('Викладачі',callback_data = '')],
+        [InlineKeyboardButton('Принципи навчання на кафедрі ',callback_data = '')],
+        [InlineKeyboardButton('Історія кафедри ',callback_data = '')],
+        [InlineKeyboardButton('Аудиторії кафедри',callback_data = '')],
+        [InlineKeyboardButton('Наші випускники',callback_data = '')]
         ]
     
     reply1 = InlineKeyboardMarkup(kb_kafedra)
@@ -83,6 +83,17 @@ def moglyv_stud(update, context):
 def umovy_vstypy(update, context):
     update.callback_query.message.reply_text('Обери підпункт, який тобі цікавиий ')
     
+def konkursni_predmet (update, context):
+  update.callback_query.message.reply_text('')
+def rozrahynok (update, context):
+  update.callback_query.message.reply_text('')
+def etapi (update, context):
+  update.callback_query.message.reply_text('')
+def konkursni_posilania (update, context):
+  update.callback_query.message.reply_text('')
+def mist_dlia_vstypnukiv (update, context):
+  update.callback_query.message.reply_text('')
+
 def vikladachi(update, context):
     update.callback_query.message.reply_text('')
 def principi(update, context):
@@ -111,7 +122,14 @@ def main():
     dp.add_handler(CallbackQueryHandler(istoriyaKafedry , pattern = "istoriyaKafedry"))
     dp.add_handler(CallbackQueryHandler(auditoryua , pattern = "auditoryua"))
     dp.add_handler(CallbackQueryHandler(vipuskniki , pattern = "vipuskniki"))
-
+    
+    dp.add_handler(CallbackQueryHandler(konkursni_predmet, pattern = 'konkursni_predmet'))
+    dp.add_handler(CallbackQueryHandler(rozrahynok, pattern = 'rozrahynok'))
+    dp.add_handler(CallbackQueryHandler(etapi, pattern = 'etapi'))
+    dp.add_handler(CallbackQueryHandler(konkursni_posilania, pattern = 'konkursni_posilania'))
+    dp.add_handler(CallbackQueryHandler(mist_dlia_vstypnukiv, pattern = 'mist_dlia_vstypnukiv'))
+    
+   
     dp.add_handler(MessageHandler(Filters.text, echo))
 
 
